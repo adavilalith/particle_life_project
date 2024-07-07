@@ -8,16 +8,11 @@ import javax.swing.JPanel;
 
 public class GamePanel extends JPanel implements Runnable{
     
-    final int originalTileSize = 16;
-    final int scale = 3;
+    
+    final int screenWidth = 1280;
+    final int screenHeight = 720;
 
-    final int tileSize = originalTileSize * scale;
-    final int maxScreenCol = 32;
-    final int maxScreenRow = 18;
-    final int screenWidth = tileSize * maxScreenCol;
-    final int screenHeight = tileSize * maxScreenRow;
-
-    final int FPS = 1;
+    final int FPS = 60;
 
     Color pixelColor = Color.white;
 
@@ -30,6 +25,7 @@ public class GamePanel extends JPanel implements Runnable{
         this.setBackground(Color.black);
         this.setDoubleBuffered(true);
         this.particlesObj = new Particles();
+
 
     }
 
@@ -73,12 +69,11 @@ public class GamePanel extends JPanel implements Runnable{
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D)g;
         ArrayList<Particle>  particles = particlesObj.getParticles();
-        // g2.setColor(pixelColor);
-        // g2.fillOval(screenWidth-7,screenHeight-7,7,7);
+    
         for(int i=0;i<particles.size();i++){
             Particle p = particles.get(i);
             g2.setColor(p.c);
-            g2.fillOval(p.x,p.y,7,7);
+            g2.fillRect(Math.abs((int)p.x),Math.abs((int)p.y),2,2);
         }
         g2.dispose();
     }
