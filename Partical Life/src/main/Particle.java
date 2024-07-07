@@ -90,9 +90,11 @@ class Particles {
             a.y += a.vy;
             if(a.x<0 || a.x>=xLimit){
                 a.vx*=-1;
+                a.x%=xLimit;
             }
             if(a.y<0 || a.y>=yLimit){
                 a.vy*=-1;
+                a.y%=yLimit;
             }
         }
     }
