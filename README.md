@@ -11,13 +11,16 @@ This project was inspired by the below video
 ## About the project
 The project is written in java. It uses javas in built windowing and drawing tools such as JFrame, awt, swing, etc.
 
-Below is a video of the project being run: 
 
-[!(Project Demo)()
+https://github.com/adavilalith/particle_life_project/assets/132076255/583dec05-a53e-4304-a8aa-520f3e01f438
+
+
 
 ## Pending Features
-1)adding gui
-2)making no of partricles, attraction, etc changable and randomizable for better simulation searching
-
+- adding gui
+- making no of partricles changable and randomizable
+- making  attraction changable and randomizable
+-refactoring the project using gradle (leaning gradle)
+  
 ## Credits
 https://github.com/hunar4321/particle-life
