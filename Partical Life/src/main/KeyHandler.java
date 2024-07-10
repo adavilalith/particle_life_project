@@ -17,7 +17,18 @@ public class KeyHandler implements KeyListener {
     @Override
     public void keyReleased(KeyEvent e) {
         // TODO Auto-generated method stub
-        System.out.println(e.getKeyCode());
+        switch (e.getKeyCode()) {
+            case 32:
+                GamePanel.paused = !GamePanel.paused;
+                break;
+            case 27:
+                GamePanel.paused = !GamePanel.paused;
+                break;
+            default:
+                break;
+        }
+        System.out.println(e.getKeyCode()+"|"+GamePanel.paused);
+        
     }
     
 }

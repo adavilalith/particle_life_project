@@ -18,6 +18,8 @@ public class GamePanel extends JPanel implements Runnable{
 
     Thread gameThread;
 
+    static boolean paused = false;
+
     public GamePanel(){
         this.setPreferredSize(new Dimension(screenWidth,screenHeight));
         this.setBackground(Color.black);
@@ -41,24 +43,29 @@ public class GamePanel extends JPanel implements Runnable{
 
 
         while(gameThread!=null){
-            repaint();
-
-            //update particle info
-            update();
-            //draw particles
-
-            double remainingTime = nextDrawTime - System.nanoTime();
-            if(remainingTime < 0){
-                remainingTime = 0;
+            if(paused){
+                System.out.print("");            
             }
-            remainingTime = remainingTime/1000000;
-            try{
-                Thread.sleep((long)remainingTime);
-            }  
-            catch(Exception e){
-                e.printStackTrace();
-            }          
-            nextDrawTime += drawInterval;
+            else{
+                repaint();
+
+                //update particle info
+                update();
+                //draw particles
+
+                double remainingTime = nextDrawTime - System.nanoTime();
+                if(remainingTime < 0){
+                    remainingTime = 0;
+                }
+                remainingTime = remainingTime/1000000;
+                try{
+                    Thread.sleep((long)remainingTime);
+                }  
+                catch(Exception e){
+                    e.printStackTrace();
+                }          
+                nextDrawTime += drawInterval;
+            }   
         }
     }
 
@@ -72,6 +79,7 @@ public class GamePanel extends JPanel implements Runnable{
         ArrayList<Particle>  particles = Particles.getParticles();
     
         for(int i=0;i<particles.size();i++){
+            
             Particle p = particles.get(i);
             g2.setColor(p.c);
             g2.fillRect(Math.abs((int)p.x),Math.abs((int)p.y),2,2);
