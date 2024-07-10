@@ -16,16 +16,17 @@ public class GamePanel extends JPanel implements Runnable{
 
     Color pixelColor = Color.white;
 
-    Particles particlesObj;
-
     Thread gameThread;
 
     public GamePanel(){
         this.setPreferredSize(new Dimension(screenWidth,screenHeight));
         this.setBackground(Color.black);
         this.setDoubleBuffered(true);
-        this.particlesObj = new Particles();
-
+        KeyHandler k = new KeyHandler();
+        this.addKeyListener(k);
+        this.setFocusable(true);
+        
+        Particles.setDefaultParticlesInfo();        
 
     }
 
@@ -62,13 +63,13 @@ public class GamePanel extends JPanel implements Runnable{
     }
 
     public void update(){
-        particlesObj.update();
+        Particles.update();
     }
     public void paintComponent(Graphics g){
 
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D)g;
-        ArrayList<Particle>  particles = particlesObj.getParticles();
+        ArrayList<Particle>  particles = Particles.getParticles();
     
         for(int i=0;i<particles.size();i++){
             Particle p = particles.get(i);

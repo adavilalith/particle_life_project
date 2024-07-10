@@ -18,14 +18,14 @@ class Particle{
 }
 
 class Particles {
-    ArrayList<Particle> particles, greenParticles, yellowParticles, redParticles; 
-    int xLimit,yLimit;
-    int greenCount, yellowCount, redCount;
-    double[][] AttractionMatrix={{-0.32,0.34,-0.17},
+    static ArrayList<Particle> particles, greenParticles, yellowParticles, redParticles; 
+    static int xLimit,yLimit;
+    static int greenCount, yellowCount, redCount;
+    static double[][] AttractionMatrix={{-0.32,0.34,-0.17},
                                  {-0.2,0.15,0},
                                  {-0.34,0,-0.1}
                                 };
-    Particles(){
+    static void setDefaultParticlesInfo(){
         xLimit=1280;
         yLimit=720;
         greenCount=1000;
@@ -37,7 +37,7 @@ class Particles {
         redParticles = createParticles(redCount, Color.red);
     }
 
-    Particles(int xlim,int ylim, int gc,int yc, int rc){
+    static void setParticlesInfo(int xlim,int ylim, int gc,int yc, int rc){
         xLimit = xlim;
         yLimit = ylim;
         greenCount = gc;
@@ -48,7 +48,7 @@ class Particles {
         redParticles = createParticles(redCount, Color.red);
     }
 
-    void setAttractionMatrix(double mat[][]){
+    static void setAttractionMatrix(double mat[][]){
         for(int i=0;i<mat.length;i++){
             for(int j=0;i<mat[i].length;j++){
                 AttractionMatrix[i][j]=mat[i][j];
@@ -56,7 +56,7 @@ class Particles {
         }
     }
 
-    ArrayList<Particle> createParticles(int number, Color c){
+    static ArrayList<Particle> createParticles(int number, Color c){
         Random rand = new Random();
         ArrayList<Particle> group = new ArrayList<Particle>();
         for(int i=0;i<number;i++){
@@ -68,7 +68,7 @@ class Particles {
 
     }
 
-    void updateParticles(ArrayList<Particle> group1, ArrayList<Particle> group2,double g){
+    static void updateParticles(ArrayList<Particle> group1, ArrayList<Particle> group2,double g){
         for(int i=0;i<group1.size();i++){
             double fx=0,fy=0;
             Particle a = group1.get(i);
@@ -100,7 +100,7 @@ class Particles {
     }
     
 
-    void update(){
+    static void update(){
         updateParticles(greenParticles,greenParticles,AttractionMatrix[0][0]);
         updateParticles(greenParticles,yellowParticles,AttractionMatrix[0][1]);
         updateParticles(greenParticles,redParticles,AttractionMatrix[0][2]);
@@ -118,7 +118,7 @@ class Particles {
    
     }
 
-    ArrayList<Particle> getParticles(){
+    static ArrayList<Particle> getParticles(){
         return particles;
     }
 
