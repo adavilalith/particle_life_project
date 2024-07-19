@@ -73,7 +73,12 @@ public class GamePanel extends JPanel implements Runnable{
     public void paintComponent(Graphics g){
 
         super.paintComponent(g);
+        
         Graphics2D g2 = (Graphics2D)g;
+
+        g2.setColor(Color.black);
+        g2.fillRect(0,0, 50000, 50000);
+
         ArrayList<Particle>  particles = Particles.getParticles();
     
         for(int i=0;i<particles.size();i++){

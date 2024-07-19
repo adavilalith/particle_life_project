@@ -53,15 +53,19 @@ class Particles {
         
     }
 
-    static void setParticlesInfo(int xlim,int ylim, int gc,int yc, int rc){
-        xLimit = xlim;
-        yLimit = ylim;
+    static void setParticlesInfo(int gc,int yc, int rc, int bc, int mc){
         greenCount = gc;
         yellowCount = yc;
         redCount = rc;
+        blueCount = bc;
+        magentaCount = mc;
+        particles = new ArrayList<Particle>();
+
         greenParticles = createParticles(greenCount, Color.green);
         yellowParticles = createParticles(yellowCount, Color.yellow);
         redParticles = createParticles(redCount, Color.red);
+        blueParticles = createParticles(blueCount, Color.blue);
+        magentaParticles = createParticles(magentaCount, Color.magenta);
     }
 
     static void setRandomAttractionMatrix(){
