@@ -26,8 +26,8 @@ class Particles {
                                  {-0.34,0,-0.1}
                                 };
     static void setDefaultParticlesInfo(){
-        xLimit=1280;
-        yLimit=720;
+        xLimit=GamePanel.screenWidth;
+        yLimit=GamePanel.screenHeight;
         greenCount=1000;
         yellowCount=1000;
         redCount=1000;

@@ -5,7 +5,7 @@ import java.awt.*;
 import javax.swing.JPanel;
 
 public class MenuPanel extends JPanel implements Runnable {
-    final int screenWidth = 1280;
+    final int screenWidth = 280;
     final int screenHeight = 720;
 
     final int FPS = 60;
@@ -13,7 +13,7 @@ public class MenuPanel extends JPanel implements Runnable {
     Thread menuThread;
 
     public MenuPanel(){
-        this.setPreferredSize(new Dimension(screenWidth,screenHeight));
+        // this.setPreferredSize(new Dimension(screenWidth,screenHeight));
         this.setBackground(Color.red);
         this.setDoubleBuffered(true);
 
