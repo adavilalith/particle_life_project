@@ -18,14 +18,12 @@ public class GamePanel extends JPanel implements Runnable{
 
     Thread gameThread;
 
-    static boolean paused = false;
+    static boolean paused = true;
 
     public GamePanel(){
         this.setPreferredSize(new Dimension(screenWidth,screenHeight));
         this.setBackground(Color.black);
         this.setDoubleBuffered(true);
-        KeyHandler k = new KeyHandler();
-        this.addKeyListener(k);
         this.setFocusable(true);
         
         Particles.setDefaultParticlesInfo();        

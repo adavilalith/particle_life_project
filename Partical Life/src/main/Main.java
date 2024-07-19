@@ -18,9 +18,10 @@ public class Main {
         menuPanel = new MenuPanel();
         menuPanel.setBounds(0,0,280,720);
         
-
+        KeyHandler k = new KeyHandler();
+        window.addKeyListener(k);
         
-        window.setSize(1300,800);
+        window.setSize(1280,720);
         window.setLayout(null);
         window.setLocationRelativeTo(null);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
