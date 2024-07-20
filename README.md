@@ -12,15 +12,15 @@ This project was inspired by the below video
 The project is written in java. It uses javas in built windowing and drawing tools such as JFrame, awt, swing, etc.
 
 
-https://github.com/adavilalith/particle_life_project/assets/132076255/583dec05-a53e-4304-a8aa-520f3e01f438
 
 
+https://github.com/user-attachments/assets/8eb1dd44-3c5d-4aae-bc65-93a41178d433
 
-## Pending Features
-- adding gui
-- making no of partricles changable and randomizable
-- making  attraction changable and randomizable
--refactoring the project using gradle (leaning gradle)
-  
+
+#Features
+- Play and pause simluation at your convenience.
+- Generate random attraction matrix to get a variety of simulations
+- Set counts of each type of particle
+
 ## Credits
 https://github.com/hunar4321/particle-life
