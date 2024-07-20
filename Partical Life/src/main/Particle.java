@@ -73,7 +73,8 @@ class Particles {
         double temp[][] = new double[5][5];
         for(int i=0;i<5;i++){
             for(int j=0;j<5;j++){
-                temp[i][j]= rand.nextDouble(-1,1);
+                temp[i][j] = rand.nextDouble();
+                temp[i][j] *= Math.pow(-1,rand.nextInt()); 
             }
         }
         setAttractionMatrix(temp);
